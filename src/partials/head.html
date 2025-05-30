@@ -1,0 +1,69 @@
+<!-- Favicon and preload -->
+<link rel="icon" href="/assets/favicon/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/assets/favicon/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon/android-chrome-512x512.png">
+
+<!-- Google Fonts: Inter + Bebas Neue -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Bebas+Neue&display=swap" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
+
+<!-- Tailwind (via CDN or replace with compiled CSS if needed) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<meta name="referrer" content="no-referrer" />
+
+<!-- Site Styles & Animations -->
+<style>
+  html {
+    visibility: hidden;
+    opacity: 0;
+  }
+  html.fonts-loaded {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+  }
+
+  .font-bebas {
+    font-family: 'Bebas Neue', sans-serif;
+  }
+
+  .hero-bg {
+    background: linear-gradient(135deg, #00f0ff, #d946ef);
+    background-size: 200% 200%;
+    animation: gradientShift 16s ease infinite;
+  }
+
+  .hero-glow {
+    box-shadow: 0 0 24px rgba(0, 195, 255, 0.35), 0 0 12px rgba(217, 70, 239, 0.25);
+  }
+
+  .tazo-name:hover {
+    animation: pulseText 1s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  @keyframes pulseText {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+  }
+</style>
+
+<script>
+  if (document.fonts) {
+    document.fonts.ready.then(() => {
+      document.documentElement.classList.add('fonts-loaded');
+    });
+  } else {
+    document.documentElement.classList.add('fonts-loaded');
+  }
+</script>
